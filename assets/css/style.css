@@ -196,6 +196,90 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
 }
 
+/* Experience Section */
+.experience {
+    padding: 6rem 0;
+    background-color: var(--background);
+}
+
+.experience-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    background-color: var(--section-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.experience-header {
+    margin-bottom: 1.5rem;
+}
+
+.experience-header h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-company {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.company-name {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.company-location {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.experience-period {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.experience-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-description li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.experience-description li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.experience-description li:last-child {
+    margin-bottom: 0;
+}
+
 /* Skills Section */
 .skills {
     padding: 6rem 0;
@@ -275,21 +359,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-image {
-    width: 100%;
-    height: 200px;
-    background-color: var(--section-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    color: var(--light-text);
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: #e0e0e0;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-img {
+    cursor: pointer;
 }
 
 .project-slideshow-inner {
     display: flex;
-    width: 100%;
+    width: 700%; /* 7 images * 100% */
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
@@ -530,7 +617,89 @@ h1, h2, h3, h4, h5, h6 {
 
 .scroll-top:hover {
     background-color: var(--secondary-color);
-    transform: translateY(-3px);
+}
+
+/* Image Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001; /* Higher than navbar */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+    transition: opacity 0.2s ease-in-out, transform 0.3s ease;
+    cursor: grab;
+}
+
+.modal-content:active {
+    cursor: grabbing;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 /* Animations */
